@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Simple Google Sheets API demo</title>    
+    
+    <link href="styles/demo1.css" rel="stylesheet" type="text/css">
+
+    <script src="scripts/simple_sheets_API.js"></script>
+    <script src="scripts/demo1.js"></script>
+  </head>
+
+  <body>
+    <h2> simple Google Sheets API demo </h2>
+    
+    <div class="demo-label"> spreadsheet ID </div>
+    <input id="txtSpreadsheetId" type="text" size="60" value="1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74">
+    <br/>
+    
+    <div class="demo-label"> sheet name </div>
+    <input id="txtSheetName" type="text" size="60" value="Sheet1">
+    <br/><br/>
+    
+    <textarea id="demoResults" class="demo-results" rows="40" cols="100"> </textarea>
+    <br/><br/>
+    
+    <button id="btnAllData" class="demo-button"> get all sheet data </button>
+    <button id="btnSingleSheetData" class="demo-button"> get data from single sheet </button>
+    
+    <script> 
+      document.addEventListener('DOMContentLoaded', initDemo);
+    </script>
+  </body>
+</html>
