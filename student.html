@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Student info</title>    
+    
+    <link href="styles/student.css" rel="stylesheet" type="text/css">
+
+    <script src="scripts/simple_sheets_API.js"></script>
+    <script src="scripts/student.js"></script>
+  </head>
+
+  <body>
+    <div class='demo-header' style="clear:left"> 
+      Student info 
+      <div id='status'></div>
+      <div id="selection" class='demo-selection'></div>
+    </div>
+    
+    <div id="results"></div>
+        
+    <script> 
+      document.addEventListener('DOMContentLoaded', init);
+    </script>
+  </body>
+</html>
