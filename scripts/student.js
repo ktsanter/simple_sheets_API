@@ -156,7 +156,7 @@ function renderStudentInfo(studentInfo) {
   }
   
   var htmlInfo = '';
-  htmlInfo += studentInfo.firstname + ' ' + studentInfo.lastname + '<br>';
+  htmlInfo += '<strong>' + studentInfo.firstname + ' ' + studentInfo.lastname + '</strong><br>';
   htmlInfo += 'ID: ' + studentInfo.id + '<br>';
   htmlInfo += 'email: ' + studentInfo.email;
   elem.appendChild(createDiv('info', null, htmlInfo));
