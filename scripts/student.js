@@ -216,9 +216,9 @@ function renderStats(stats) {
   var elem = createDiv('stats', null, null);
   
   var html = '';
-  html += 'quiz average: ' + stats.quizmean + '%<br>';
-  html += 'assignment average: ' + stats.assignmentmean + '%<br>';
-  html += 'test average: ' + stats.testmean + '%<br>';
+  html += 'quizzes: ' + stats.quizmean + '%<br>';
+  html += 'assignments: ' + stats.assignmentmean + '%<br>';
+  html += 'tests: ' + stats.testmean + '%<br>';
   html += 'weighted score: ' + stats.weightedscore + '%<br>';
   
   elem.innerHTML = html;

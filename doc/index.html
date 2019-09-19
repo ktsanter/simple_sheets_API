@@ -1,0 +1,779 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>  | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'></h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#simplesheetsapi'
+                  class=" toggle-sibling">
+                  simpleSheetsAPI
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#simplesheetsapigetallsheetdata'
+                        class='regular pre-open'>
+                        .getAllSheetData
+                      </a></li>
+                    
+                      <li><a
+                        href='#simplesheetsapigetsheetdata'
+                        class='regular pre-open'>
+                        .getSheetData
+                      </a></li>
+                    
+                      <li><a
+                        href='#simplesheetsapisimplesheetsapireturn'
+                        class='regular pre-open'>
+                        .simpleSheetsAPIReturn
+                      </a></li>
+                    
+                      <li><a
+                        href='#simplesheetsapisimplesheetsapidata'
+                        class='regular pre-open'>
+                        .simpleSheetsAPIData
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#googlewebappapi'
+                  class=" toggle-sibling">
+                  googleWebAppAPI
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#googlewebappapiwebappget'
+                        class='regular pre-open'>
+                        .webAppGet
+                      </a></li>
+                    
+                      <li><a
+                        href='#googlewebappapiwebapppost'
+                        class='regular pre-open'>
+                        .webAppPost
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='simplesheetsapi'>
+      simpleSheetsAPI
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>class to manipulate the web apps interface for
+reading and writing Google Sheet documents</p>
+
+    <div class='pre p1 fill-light mt0'>simpleSheetsAPI</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='simplesheetsapigetallsheetdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getAllSheetData(spreadsheetId)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>retrieve data from all sheets in the Google Sheet document with the given ID</p>
+
+    <div class='pre p1 fill-light mt0'>getAllSheetData(spreadsheetId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): simpleSheetsAPIReturn</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>spreadsheetId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    the ID for the Google Sheet
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>simpleSheetsAPIReturn</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// retrieve data from all sheets in sample data doc</span>
+<span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> simpleSheetsAPI.getAllSheetData(<span class="hljs-string">'1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74'</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='simplesheetsapigetsheetdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getSheetData(spreadsheetId, sheetName)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>retrieve data from the specified sheet in the Google Sheet document with the given ID</p>
+
+    <div class='pre p1 fill-light mt0'>getSheetData(spreadsheetId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, sheetName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): simpleSheetsAPIReturn</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>spreadsheetId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    the ID for the Google Sheet
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sheetName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of a sheet in the spreadsheet doc
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>simpleSheetsAPIReturn</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// retrieve data from "basic" sheet in sample data doc</span>
+<span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> simpleSheetsAPI.getSheetData(<span class="hljs-string">'1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74'</span>, <span class="hljs-string">'basic'</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='simplesheetsapisimplesheetsapireturn'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>simpleSheetsAPIReturn</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>The return value for simpleSheetsAPI calls looks like this.</p>
+
+    <div class='pre p1 fill-light mt0'>simpleSheetsAPIReturn</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>success</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+          : success or failure of API call.
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>data</span> <code class='quiet'>(simpleSheetsAPIData)</code>
+          : the retrieved data (null if call failed).
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// successful result:</span>
+{ <span class="hljs-attr">success</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">data</span>: {**see simpleSheetsAPIData**} }
+
+<span class="hljs-comment">// failure result:</span>
+{ <span class="hljs-attr">success</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">data</span>: <span class="hljs-literal">null</span> }</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='simplesheetsapisimplesheetsapidata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>simpleSheetsAPIData</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>the data in a simpleSheetsAPI return value</p>
+
+    <div class='pre p1 fill-light mt0'>simpleSheetsAPIData</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>docname</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : name of Google Sheet document
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>docid</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : Google Sheet ID
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sheetnames</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+          : array of sheet names in document
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sheetdata</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+          : an object where each key represents a
+sheet in the document.  Each key value is
+a 2D array holding the sheet's data
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>{
+ <span class="hljs-string">"docname"</span>:<span class="hljs-string">"test sheet"</span>,
+ <span class="hljs-string">"docid"</span>:<span class="hljs-string">"1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74"</span>,
+ <span class="hljs-string">"sheetnames"</span>:[<span class="hljs-string">"basic"</span>],
+ <span class="hljs-string">"sheetdata"</span>:{<span class="hljs-string">"basic"</span>:[[<span class="hljs-string">"this is A1"</span>,<span class="hljs-string">"this is B1"</span>],[<span class="hljs-string">"this is A2"</span>,<span class="hljs-string">"this is B2"</span>]]}}
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='googlewebappapi'>
+      googleWebAppAPI
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>general purpose class for interacting with Google Web app APIs</p>
+
+    <div class='pre p1 fill-light mt0'>new googleWebAppAPI()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='googlewebappapiwebappget'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>webAppGet(apiInfo, dataset, params, objNotice)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>send GET request to web app API</p>
+
+    <div class='pre p1 fill-light mt0'>webAppGet(apiInfo: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, dataset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, params: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, objNotice: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>apiInfo</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    {apikey: {string}, apibase: {string} - base URL for web app API}
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dataset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of GET request
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    query parameters
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>objNotice</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    (optional) object with "reportError" callback for error reporting
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        {success: (boolean), data: (Object)}
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// use the simpleSheetAPI to request the data from the "basic" sheet in the sample Google document</span>
+<span class="hljs-keyword">var</span> requestResult = <span class="hljs-keyword">await</span> googleWebAppAPI.webAppGet(
+  {
+     <span class="hljs-attr">apikey</span>: <span class="hljs-string">'simpleSheetAPI'</span>, 
+     <span class="hljs-attr">apibase</span>: <span class="hljs-string">'https://script.google.com/macros/s/AKfycbyuX2ejECoEhRBp4Dqa8ncr032sW00SLmQAh0DdaT0XEYJrZh4/exec'</span>
+  },
+  <span class="hljs-string">'getsheetdata'</span>, 
+   {
+     <span class="hljs-attr">spreadsheetid</span>: <span class="hljs-string">'1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74'</span>,
+     <span class="hljs-attr">sheetname</span>: <span class="hljs-string">'basic'</span>
+   }
+ );</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='googlewebappapiwebapppost'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>webAppPost(apiInfo, dataset, postData, objNotice)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>send POST request to web app API</p>
+
+    <div class='pre p1 fill-light mt0'>webAppPost(apiInfo: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, dataset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, postData: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, objNotice: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>apiInfo</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    {apikey: {string}, apibase: {string} - base URL for web app API}
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dataset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of PUT request
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>postData</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    data to be posted
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>objNotice</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    (optional) object with "reportError" callback for error reporting
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        {success: (boolean), data: (Object)}
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
