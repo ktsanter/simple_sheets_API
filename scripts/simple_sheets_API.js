@@ -10,6 +10,15 @@
  * @namespace simpleSheetsAPI
  */
 class simpleSheetsAPI {
+  /**
+  * Configuration information for use with the web app API.  
+  * Note these values should not be changed unless you are using your own web app API
+  * @returns {Object} {apkey: (string) key for web app API, apibase: (string) base URL for web app API}
+  * @example
+  * var info = simpleSheetsAPI.apiInfo();
+  // info.apikey = 'simpleSheetAPI'
+  // info.apibase = 'https://script.google.com/macros/s/AKfycbyuX2ejECoEhRBp4Dqa8ncr032sW00SLmQAh0DdaT0XEYJrZh4/exec'
+  */
   static apiInfo() {
     return {
       apikey: 'simpleSheetAPI',
@@ -18,12 +27,15 @@ class simpleSheetsAPI {
   }
   
   /**
-   * retrieve data from all sheets in the Google Sheet document with the given ID
+   * retrieve data from all sheets in the Google Sheet document with the given ID (asynchronous)
    * @param {string} spreadsheetId - the ID for the Google Sheet
-   * @returns {simpleSheetsAPIReturn}
+   * @returns {Object} {success: boolean, data: see {@link #simplesheetsapiapireturndata apiReturnData}}
    * @example
    * // retrieve data from all sheets in sample data doc
    * var result = await simpleSheetsAPI.getAllSheetData('1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74');
+   * // result.success = true if call succeeded
+   * // result.data = object of type apiReturnData if success, otherwise null
+   * // result.details - string describing result, contains an error message if success is false
    */
   static async getAllSheetData(spreadsheetId) {
     var requestParams = {
@@ -35,13 +47,16 @@ class simpleSheetsAPI {
   }
 
   /**
-   * retrieve data from the specified sheet in the Google Sheet document with the given ID
+   * retrieve data from the specified sheet in the Google Sheet document with the given ID (asynchronous)
    * @param {string} spreadsheetId - the ID for the Google Sheet
    * @param {string} sheetName - name of a sheet in the spreadsheet doc
-   * @returns {simpleSheetsAPIReturn} 
+   * @returns {Object} {success: boolean, data: see {@link #simplesheetsapiapireturndata apiReturnData}}
    * @example
    * // retrieve data from "basic" sheet in sample data doc
    * var result = await simpleSheetsAPI.getSheetData('1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74', 'basic');
+   * // result.success - true if call succeeded
+   * // result.data - object of type apiReturnData if success, otherwise null
+   * // result.details - string describing result, contains an error message if success is false
    */
   static async getSheetData(spreadsheetId, sheetName) {
     var requestParams = {
@@ -52,29 +67,14 @@ class simpleSheetsAPI {
     var requestResult = await googleWebAppAPI.webAppGet(this.apiInfo(), 'getsheetdata', requestParams);
     return requestResult;
   }  
-
-/**
- * The return value for simpleSheetsAPI calls looks like this.
- * @typedef {Object} simpleSheetsAPIReturn
- * @memberof simpleSheetsAPI
- * @property {boolean} success - success or failure of API call.
- * @property {simpleSheetsAPIData} data - the retrieved data (null if call failed).
- * @example
- * // successful result:
- * { success: true, data: {**see simpleSheetsAPIData**} }
- *
- * // failure result:
- * { success: false, data: null }
- *
- */
   
 /**
- * the data in a simpleSheetsAPI return value
- * @typedef {Object} simpleSheetsAPIData
+ * spreadsheet data returned from successful API call
+ * @typedef {Object} apiReturnData
  * @memberof simpleSheetsAPI
  * @property {string} docname - name of Google Sheet document
  * @property {string} docid - Google Sheet ID
- * @property {array} sheetnames - array of sheet names in document
+ * @property {string[]} sheetnames - array of sheet name(s) in document, only one element for getSheetData calls
  * @property {Object} sheetdata - an object where each key represents a
  *                                sheet in the document.  Each key value is
  *                                a 2D array holding the sheet's data 
@@ -93,15 +93,15 @@ class simpleSheetsAPI {
 //  - general purpose interface for App Script web apps
 //---------------------------------------------------------------
 /**
- * general purpose class for interacting with Google Web app APIs
+ * general purpose class for interacting with Google web app APIs
  */
 class googleWebAppAPI {
   /**
-   * send GET request to web app API
+   * send GET request to web app API (asynchronous)
    * @param {Object} apiInfo - {apikey: {string}, apibase: {string} - base URL for web app API}
    * @param {string} dataset - name of GET request
    * @param {Object} params - query parameters
-   * @param {Object} objNotice - (optional) object with "reportError" callback for error reporting
+   * @param {Object} [objNotice] - (optional) object with "reportError" callback for error reporting
    * @returns {Object} - {success: (boolean), data: (Object)}
    * @example
    * // use the simpleSheetAPI to request the data from the "basic" sheet in the sample Google document
@@ -142,11 +142,11 @@ class googleWebAppAPI {
   }  
   
   /**
-   * send POST request to web app API
+   * send POST request to web app API (asynchronous)
    * @param {Object} apiInfo - {apikey: {string}, apibase: {string} - base URL for web app API}
    * @param {string} dataset - name of PUT request
    * @param {Object} postData - data to be posted
-   * @param {Object} objNotice - (optional) object with "reportError" callback for error reporting
+   * @param {Object} [objNotice] - (optional) object with "reportError" callback for error reporting
    * @returns {Object} - {success: (boolean), data: (Object)}
    */    
   static async webAppPost(apiInfo, dataset, postData, objNotice) {

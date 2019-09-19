@@ -37,6 +37,12 @@
                     <li class='h5'><span>Static members</span></li>
                     
                       <li><a
+                        href='#simplesheetsapiapiinfo'
+                        class='regular pre-open'>
+                        .apiInfo
+                      </a></li>
+                    
+                      <li><a
                         href='#simplesheetsapigetallsheetdata'
                         class='regular pre-open'>
                         .getAllSheetData
@@ -49,15 +55,9 @@
                       </a></li>
                     
                       <li><a
-                        href='#simplesheetsapisimplesheetsapireturn'
+                        href='#simplesheetsapiapireturndata'
                         class='regular pre-open'>
-                        .simpleSheetsAPIReturn
-                      </a></li>
-                    
-                      <li><a
-                        href='#simplesheetsapisimplesheetsapidata'
-                        class='regular pre-open'>
-                        .simpleSheetsAPIData
+                        .apiReturnData
                       </a></li>
                     
                     </ul>
@@ -154,6 +154,70 @@ reading and writing Google Sheet documents</p>
     <div class='py1 quiet mt1 prose-big'>Static Members</div>
     <div class="clearfix">
   
+    <div class='border-bottom' id='simplesheetsapiapiinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>apiInfo()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Configuration information for use with the web app API.<br>
+Note these values should not be changed unless you are using your own web app API</p>
+
+    <div class='pre p1 fill-light mt0'>apiInfo(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        {apkey: (string) key for web app API, apibase: (string) base URL for web app API}
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">var</span> info = simpleSheetsAPI.apiInfo();
+<span class="hljs-comment">// info.apikey = 'simpleSheetAPI'</span>
+<span class="hljs-comment">// info.apibase = 'https://script.google.com/macros/s/AKfycbyuX2ejECoEhRBp4Dqa8ncr032sW00SLmQAh0DdaT0XEYJrZh4/exec'</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
     <div class='border-bottom' id='simplesheetsapigetallsheetdata'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
@@ -166,9 +230,9 @@ reading and writing Google Sheet documents</p>
 
   
 
-  <p>retrieve data from all sheets in the Google Sheet document with the given ID</p>
+  <p>retrieve data from all sheets in the Google Sheet document with the given ID (asynchronous)</p>
 
-    <div class='pre p1 fill-light mt0'>getAllSheetData(spreadsheetId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): simpleSheetsAPIReturn</div>
+    <div class='pre p1 fill-light mt0'>getAllSheetData(spreadsheetId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
   
   
 
@@ -200,8 +264,10 @@ reading and writing Google Sheet documents</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>simpleSheetsAPIReturn</code>:
-        
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        {success: boolean, data: see 
+<a href="#simplesheetsapiapireturndata">apiReturnData</a>
+}
 
       
     
@@ -214,7 +280,10 @@ reading and writing Google Sheet documents</p>
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// retrieve data from all sheets in sample data doc</span>
-<span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> simpleSheetsAPI.getAllSheetData(<span class="hljs-string">'1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74'</span>);</pre>
+<span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> simpleSheetsAPI.getAllSheetData(<span class="hljs-string">'1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74'</span>);
+<span class="hljs-comment">// result.success = true if call succeeded</span>
+<span class="hljs-comment">// result.data = object of type apiReturnData if success, otherwise null</span>
+<span class="hljs-comment">// result.details - string describing result, contains an error message if success is false</span></pre>
     
   
 
@@ -242,9 +311,9 @@ reading and writing Google Sheet documents</p>
 
   
 
-  <p>retrieve data from the specified sheet in the Google Sheet document with the given ID</p>
+  <p>retrieve data from the specified sheet in the Google Sheet document with the given ID (asynchronous)</p>
 
-    <div class='pre p1 fill-light mt0'>getSheetData(spreadsheetId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, sheetName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): simpleSheetsAPIReturn</div>
+    <div class='pre p1 fill-light mt0'>getSheetData(spreadsheetId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, sheetName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
   
   
 
@@ -285,8 +354,10 @@ reading and writing Google Sheet documents</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>simpleSheetsAPIReturn</code>:
-        
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        {success: boolean, data: see 
+<a href="#simplesheetsapiapireturndata">apiReturnData</a>
+}
 
       
     
@@ -299,7 +370,10 @@ reading and writing Google Sheet documents</p>
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// retrieve data from "basic" sheet in sample data doc</span>
-<span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> simpleSheetsAPI.getSheetData(<span class="hljs-string">'1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74'</span>, <span class="hljs-string">'basic'</span>);</pre>
+<span class="hljs-keyword">var</span> result = <span class="hljs-keyword">await</span> simpleSheetsAPI.getSheetData(<span class="hljs-string">'1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74'</span>, <span class="hljs-string">'basic'</span>);
+<span class="hljs-comment">// result.success - true if call succeeded</span>
+<span class="hljs-comment">// result.data - object of type apiReturnData if success, otherwise null</span>
+<span class="hljs-comment">// result.details - string describing result, contains an error message if success is false</span></pre>
     
   
 
@@ -315,11 +389,11 @@ reading and writing Google Sheet documents</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='simplesheetsapisimplesheetsapireturn'>
+    <div class='border-bottom' id='simplesheetsapiapireturndata'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>simpleSheetsAPIReturn</span>
+            <span class='code strong strong truncate'>apiReturnData</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -327,90 +401,9 @@ reading and writing Google Sheet documents</p>
 
   
 
-  <p>The return value for simpleSheetsAPI calls looks like this.</p>
+  <p>spreadsheet data returned from successful API call</p>
 
-    <div class='pre p1 fill-light mt0'>simpleSheetsAPIReturn</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>success</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
-          : success or failure of API call.
-
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>data</span> <code class='quiet'>(simpleSheetsAPIData)</code>
-          : the retrieved data (null if call failed).
-
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// successful result:</span>
-{ <span class="hljs-attr">success</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">data</span>: {**see simpleSheetsAPIData**} }
-
-<span class="hljs-comment">// failure result:</span>
-{ <span class="hljs-attr">success</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">data</span>: <span class="hljs-literal">null</span> }</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='simplesheetsapisimplesheetsapidata'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>simpleSheetsAPIData</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>the data in a simpleSheetsAPI return value</p>
-
-    <div class='pre p1 fill-light mt0'>simpleSheetsAPIData</div>
+    <div class='pre p1 fill-light mt0'>apiReturnData</div>
   
     <p>
       Type:
@@ -447,8 +440,8 @@ reading and writing Google Sheet documents</p>
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>sheetnames</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
-          : array of sheet names in document
+          <span class='code bold'>sheetnames</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
+          : array of sheet name(s) in document, only one element for getSheetData calls
 
           
         </div>
@@ -521,7 +514,7 @@ a 2D array holding the sheet's data
   </div>
   
 
-  <p>general purpose class for interacting with Google Web app APIs</p>
+  <p>general purpose class for interacting with Google web app APIs</p>
 
     <div class='pre p1 fill-light mt0'>new googleWebAppAPI()</div>
   
@@ -552,7 +545,7 @@ a 2D array holding the sheet's data
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>webAppGet(apiInfo, dataset, params, objNotice)</span>
+            <span class='code strong strong truncate'>webAppGet(apiInfo, dataset, params, objNotice?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -560,9 +553,9 @@ a 2D array holding the sheet's data
 
   
 
-  <p>send GET request to web app API</p>
+  <p>send GET request to web app API (asynchronous)</p>
 
-    <div class='pre p1 fill-light mt0'>webAppGet(apiInfo: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, dataset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, params: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, objNotice: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+    <div class='pre p1 fill-light mt0'>webAppGet(apiInfo: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, dataset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, params: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, objNotice: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
   
   
 
@@ -606,7 +599,7 @@ a 2D array holding the sheet's data
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>objNotice</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>objNotice</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
 	    (optional) object with "reportError" callback for error reporting
 
           </div>
@@ -665,7 +658,7 @@ a 2D array holding the sheet's data
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>webAppPost(apiInfo, dataset, postData, objNotice)</span>
+            <span class='code strong strong truncate'>webAppPost(apiInfo, dataset, postData, objNotice?)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -673,9 +666,9 @@ a 2D array holding the sheet's data
 
   
 
-  <p>send POST request to web app API</p>
+  <p>send POST request to web app API (asynchronous)</p>
 
-    <div class='pre p1 fill-light mt0'>webAppPost(apiInfo: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, dataset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, postData: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, objNotice: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+    <div class='pre p1 fill-light mt0'>webAppPost(apiInfo: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, dataset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, postData: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, objNotice: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
   
   
 
@@ -719,7 +712,7 @@ a 2D array holding the sheet's data
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>objNotice</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>objNotice</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
 	    (optional) object with "reportError" callback for error reporting
 
           </div>
