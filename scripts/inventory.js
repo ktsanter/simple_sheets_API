@@ -1,9 +1,9 @@
 "use strict";
 
-const student = function() {
+const inventory = function() {
   var fullRosterData = null;
-  var spreadsheetId = '1spEEwVT16VAFdyYOByKx05XX67ETSj2yiN2maOYCows';
-  var sheetName = 'roster';
+  var spreadsheetId = '1NFuOdmj7njWshl28rvKHrmVt4HyQ8o2gmcAI6MDqIPk';
+  var sheetName = 'inventory';
   var objRoster = {};
 
   async function init() {

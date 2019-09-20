@@ -2,7 +2,7 @@
 
 const assignmentScores = function () {
   var fullRosterData = null;
-  var spreadsheetId = '1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74';
+  var spreadsheetId = '1spEEwVT16VAFdyYOByKx05XX67ETSj2yiN2maOYCows';
   var sheetName = 'roster';
   var objRoster = {};
 
