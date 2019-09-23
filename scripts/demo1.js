@@ -12,7 +12,7 @@ const demo1 = function() {
     setResults('loading...');
     var result = await simpleSheetsAPI.getAllSheetData(spreadsheetId);
     if (!result.success) {
-      setStatus('load failed: ' + result.details);
+      setResults('load failed: ' + result.details);
     } else {
       setResults(result.data);
     }
