@@ -68,24 +68,64 @@ class simpleSheetsAPI {
     return requestResult;
   }  
   
-/**
- * spreadsheet data returned from successful API call
- * @typedef {Object} apiReturnData
- * @memberof simpleSheetsAPI
- * @property {string} docname - name of Google Sheet document
- * @property {string} docid - Google Sheet ID
- * @property {string[]} sheetnames - array of sheet name(s) in document, only one element for getSheetData calls
- * @property {Object} sheetdata - an object where each key represents a
- *                                sheet in the document.  Each key value is
- *                                a 2D array holding the sheet's data 
- * @example
- * {
- *  "docname":"test sheet",
- *  "docid":"1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74",
- *  "sheetnames":["basic"],
- *  "sheetdata":{"basic":[["this is A1","this is B1"],["this is A2","this is B2"]]}}
- * }
- */
+  /**
+   * spreadsheet data returned from successful API call
+   * @typedef {Object} apiReturnData
+   * @memberof simpleSheetsAPI
+   * @property {string} docname - name of Google Sheet document
+   * @property {string} docid - Google Sheet ID
+   * @property {string[]} sheetnames - array of sheet name(s) in document, only one element for getSheetData calls
+   * @property {Object} sheetdata - an object where each key represents a
+   *                                sheet in the document.  Each key value is
+   *                                a 2D array holding the sheet's data 
+   * @example
+   * {
+   *  "docname":"test sheet",
+   *  "docid":"1NVd3tAgHhPZ5PZFN2A2h26mPoS2fPDk_aMVEnzCkE74",
+   *  "sheetnames":["basic"],
+   *  "sheetdata":{"basic":[["this is A1","this is B1"],["this is A2","this is B2"]]}}
+   * }
+   */
+ 
+   /**
+   * retrieve data as from the specified sheet in the Google Sheet document with the given ID (asynchronous).
+   * This differs from getSheetData as the data is packaged into an array of objects with object keys defined by a row from the spreadsheet.
+   * @param {string} spreadsheetId - the ID for the Google Sheet
+   * @param {string} sheetName - name of a sheet in the spreadsheet doc
+   * @param {integer} headerRow - row number (0 based) of header names in spreadsheet data
+   * @param {integer} firstDataRow - row number (0 based) of the beginning of the content data.  
+   *                  The following rows are assumed to all be content data
+   * @returns {Object[]} result - array of objects where each fieldname is from the header row
+   * @example
+   * // retrieve sample FAFSA data
+   * fafsaData = await simpleSheetsAPI.getSheetDataAsObjectArray('1PEPzC9eNODx5IX6R7pJmWSk74rYbVkpx8Q3m_j7Ielk', FAFSA, 2, 3);
+   * // result - [ {school: "ALASKA MIDDLE COLLEGE SCHOOL", city: "ANCHORAGE", state: "AK", completed: 23}, ...]
+   */
+  static async getSheetDataAsObjectArray(spreadsheetId, sheetName, headerRow, firstDataRow) {
+    var sheetObjectData = null;
+    
+    var requestResult = await this.getSheetData(spreadsheetId, sheetName);
+    if (requestResult.success) {
+      sheetObjectData = [];
+      var sheetData = requestResult.data.sheetdata[sheetName];
+      var headerRowData = sheetData[headerRow];
+      var contentData = sheetData.slice(firstDataRow);
+      
+      for (var i = 0; i < contentData.length; i++) {
+        var entry = {};
+        var contentRow = contentData[i];
+        
+        for (var j = 0; j < headerRowData.length; j++) {
+          var key = headerRowData[j];
+          entry[key] = contentRow[j];
+        }
+        
+        sheetObjectData.push(entry);
+      }
+    }
+    
+    return sheetObjectData;
+  }
 }
 
 //---------------------------------------------------------------

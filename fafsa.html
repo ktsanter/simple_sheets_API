@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>FAFSA completion info</title>    
+    
+    <link href="styles/fafsa.css" rel="stylesheet" type="text/css">
+
+    <script src="scripts/simple_sheets_API.js"></script>
+    <script src="scripts/FAFSA.js"></script>
+  </head>
+
+  <body>
+    <div class='demo-header' style="clear:left"> 
+      FAFSA completion info 
+      <div id='status'></div>
+      <div id="selection" class='demo-selection'></div>
+    </div>
+    
+    <div id="results"></div>
+        
+    <script> 
+      document.addEventListener('DOMContentLoaded', fafsa.init);
+    </script>
+  </body>
+</html>

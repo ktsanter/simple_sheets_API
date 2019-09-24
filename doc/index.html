@@ -60,6 +60,12 @@
                         .apiReturnData
                       </a></li>
                     
+                      <li><a
+                        href='#simplesheetsapigetsheetdataasobjectarray'
+                        class='regular pre-open'>
+                        .getSheetDataAsObjectArray
+                      </a></li>
+                    
                     </ul>
                   
                   
@@ -472,6 +478,115 @@ a 2D array holding the sheet's data
  <span class="hljs-string">"sheetnames"</span>:[<span class="hljs-string">"basic"</span>],
  <span class="hljs-string">"sheetdata"</span>:{<span class="hljs-string">"basic"</span>:[[<span class="hljs-string">"this is A1"</span>,<span class="hljs-string">"this is B1"</span>],[<span class="hljs-string">"this is A2"</span>,<span class="hljs-string">"this is B2"</span>]]}}
 }</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='simplesheetsapigetsheetdataasobjectarray'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getSheetDataAsObjectArray(spreadsheetId, sheetName, headerRow, firstDataRow)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>retrieve data as from the specified sheet in the Google Sheet document with the given ID (asynchronous).
+This differs from getSheetData as the data is packaged into an array of objects with object keys defined by a row from the spreadsheet.</p>
+
+    <div class='pre p1 fill-light mt0'>getSheetDataAsObjectArray(spreadsheetId: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, sheetName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, headerRow: integer, firstDataRow: integer): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>spreadsheetId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    the ID for the Google Sheet
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sheetName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of a sheet in the spreadsheet doc
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>headerRow</span> <code class='quiet'>(integer)</code>
+	    row number (0 based) of header names in spreadsheet data
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>firstDataRow</span> <code class='quiet'>(integer)</code>
+	    row number (0 based) of the beginning of the content data.
+<br>
+
+
+The following rows are assumed to all be content data
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>></code>:
+        result - array of objects where each fieldname is from the header row
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// retrieve sample FAFSA data</span>
+fafsaData = <span class="hljs-keyword">await</span> simpleSheetsAPI.getSheetDataAsObjectArray(<span class="hljs-string">'1PEPzC9eNODx5IX6R7pJmWSk74rYbVkpx8Q3m_j7Ielk'</span>, FAFSA, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
+<span class="hljs-comment">// result - [ {school: "ALASKA MIDDLE COLLEGE SCHOOL", city: "ANCHORAGE", state: "AK", completed: 23}, ...]</span></pre>
     
   
 
