@@ -5,10 +5,21 @@
 body {
 	color: black;
 	background-color: transparent;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 	font-size: 13px;
 }
 
 .demo-label {
   display: inline-block;
+}
+
+.description {
+  font-size: 1.1em;
+  padding-bottom: 2px;
+  font-style: italic;
+  color: blue;
+}
+
+.section {
+  margin-bottom: 16px;
 }
