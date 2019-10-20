@@ -17,7 +17,7 @@ const fafsa = function() {
   async function loadFAFSAData() {
     var success = false;
     
-    setStatus('loading...');
+    setStatus('loading (this may take a few seconds)...');
     
     fafsaData = await simpleSheetsAPI.getSheetDataAsObjectArray(spreadsheetId, sheetName, dataHeaderRow, dataFirstContentRow);
     if (fafsaData == null) {
