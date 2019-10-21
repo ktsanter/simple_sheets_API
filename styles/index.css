@@ -24,13 +24,10 @@ body {
 }
 
 .footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: #115e6e;
-   color: white;
-   font-style: italic;
+  width: 100%;
+  background-color: #115e6e;
+  color: white;
+  font-style: italic;
   padding: 4px;
 }
 

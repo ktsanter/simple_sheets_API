@@ -1,0 +1,88 @@
+/*-------------------------------------------------------------------*/
+ /* styling for student page                                         */
+ /*------------------------------------------------------------------*/
+body {
+	color: black;
+	background-color: transparent;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+#status {
+  display: none;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.demo-header {
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  background-color: #115e6e;
+  border: 1px solid #115e6e;
+  padding: 0.2em;  
+}
+
+#selection {
+  display: inline-block;
+  margin-left: 0.2em;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#infoContainer {
+  margin-top: 10px;
+}
+
+#picContainer {
+  margin-right: 10px;
+  float: left;
+}
+
+#picture {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  text-align: center;
+  font-style: italic;
+  color: blue;
+  background-color: #ccc;
+}
+
+#info {
+  padding-top: 10px;
+  font-size: 1.1em;
+}
+
+#resultTable {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#resultTable td, #resultTable th {
+  border: 1px solid #ddd;
+  padding: 4px;
+}
+
+#resultTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#resultTable tr:hover {background-color: #ddd;}
+
+#resultTable th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #115e6e;
+  color: white;
+}
+
+#stats {
+  margin-top: 10px;
+}
+
