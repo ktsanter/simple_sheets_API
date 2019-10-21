@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>getting started</title>    
+
+    <script src="scripts/simple_sheets_API.js"></script>
+  </head>
+
+  <body>
+    <h2> Getting started </h2>  
+
+    <textarea id="resultsFull" rows="20" cols="60" style="inline-block;"> </textarea>
+    <textarea id="resultsArray" rows="20" cols="60" style="inline-block;"> </textarea>
+  
+    <script> 
+      document.addEventListener('DOMContentLoaded', doDemo);
+      
+      async function doDemo() {
+        var spreadsheetId = '1uecvr6P2EsL8lDyMhGW7eDEYFabqsiG_MwwJiEwhW48';
+        var sheetName = 'Cy Young winners';
+        
+        var elemResultsFull = document.getElementById('resultsFull');
+        var elemResultsArray = document.getElementById('resultsArray');
+        
+        elemResultsFull.innerHTML = 'loading...';
+        
+        var result = await simpleSheetsAPI.getSheetData(spreadsheetId, sheetName);
+        elemResultsFull.innerHTML = JSON.stringify(result, null, 2);
+        
+        if (result.success) {
+          elemResultsArray.innerHTML = JSON.stringify(result.data.sheetdata[sheetName]);
+        } else {
+          elemResultsArray.innerHTML = '';
+        }
+      }
+    </script>
+  </body>
+</html>
