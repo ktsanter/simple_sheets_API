@@ -1,0 +1,48 @@
+/*-------------------------------------------------------------------*/
+ /* styling for catalog page                                         */
+ /*------------------------------------------------------------------*/
+body {
+	color: black;
+	background-color: transparent;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+#status {
+  display: none;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.demo-header {
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  background-color: #115e6e;
+  border: 1px solid #115e6e;
+  padding: 0.2em;  
+  margin-bottom: 10px;
+}
+
+#yearSelect {
+  margin-bottom: 10px;
+}
+
+#pitcherResults {
+}
+
+.pitcher-container {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.pitcher-league {
+  font-weight: bold;
+}
+
+.player-image {
+  width: 140px;
+  border: 1px solid #aaa;
+}
