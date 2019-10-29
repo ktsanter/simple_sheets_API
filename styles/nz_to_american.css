@@ -1,5 +1,5 @@
 /*-------------------------------------------------------------------*/
- /* styling for Cy Young award page                                  */
+ /* styling for NZ to American vocabulary page                       */
  /*------------------------------------------------------------------*/
 body {
 	color: black;
@@ -26,23 +26,47 @@ body {
   margin-bottom: 10px;
 }
 
-#yearSelect {
+.card {
+  border: 1px solid #aaa;
+  display: inline-block;
+  background-color: #ccc;
+  width: 300px;
   margin-bottom: 10px;
 }
 
-#pitcherResults {
-}
-
-.pitcher-container {
+.card-number {
   display: inline-block;
-  margin-right: 10px;
+  font-size: 1.2em;
+  margin-right: 8px;
 }
 
-.pitcher-league {
+.card-front {
+}
+
+.card-back {
+  background-color: blue;
+  color: white;
+}
+
+.card-title {
+  font-size: 1.2em;
   font-weight: bold;
+  font-style: italic;
 }
 
-.player-image {
-  width: 140px;
-  border: 1px solid #aaa;
+.card-text {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 1.2em;
+}
+
+.card-button {
+  font-size: 1.4em;
+  margin-right: 8px;
+}
+
+.flip-button {
+  font-size: 1.2em;
+  margin-right: 20px;
 }
